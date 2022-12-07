@@ -2,7 +2,7 @@
 #include <SoftwareSerial.h> 
 #include <TinyGPS.h> 
 float lat = 28.5458,lon = 77.1703; // create variable for latitude and longitude object  
-SoftwareSerial gpsSerial(3,4);//rx,tx 
+SoftwareSerial gpsSerial(2,3);//rx,tx 
 LiquidCrystal lcd(A0,A1,A2,A3,A4,A5); 
 TinyGPS gps; // create gps object 
 void setup(){ 
@@ -38,8 +38,9 @@ void loop(){
   lcd.print(lon); 
  } 
 } 
-String latitude = String(lat,6); 
-  String longitude = String(lon,6); 
-Serial.println(latitude+";"+longitude); 
+float latitude = lat; 
+float longitude = lon; 
+Serial.println(latitude); 
+Serial.println(longitude);
 delay(1000); 
 } 
